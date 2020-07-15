@@ -1,18 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import { Router, Route, Redirect, hashHistory } from 'react-router'
 
-import ListaVenda from './pages/listaVenda';
-import FormVenda from './pages/venda';
+import ConsultarMinhasEstrelas from './pages/consultarMinhasEstrelas'
+import MinhasEstrelas from './pages/minhasEstrelas'
 
-const Routes = () => (
-    <BrowserRouter>
-        <Switch>
-            <Route path="/" exact component={ListaVenda}></Route>
-            <Route path="/venda/:idVenda" component={FormVenda}></Route>
-        </Switch>
-    </BrowserRouter>
-
+export default props => (
+    <Router history={hashHistory}>
+        <Route path='/' component={ConsultarMinhasEstrelas}/>
+        <Route path='/estrelas/:telefone' component={MinhasEstrelas}/>
+        <Redirect from='*' to='/' />
+    </Router>
 )
-
-export default Routes

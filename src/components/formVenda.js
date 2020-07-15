@@ -5,68 +5,69 @@ import MessageSucesso from './messageSucesso';
 import { withRouter } from 'react-router-dom'
 
 class FormVenda extends Component {
-  state = {
-    _id: '',
-    telefone: '',
-    nome: '',
-    valor: '',
-    descricao: '',
-    sucesso: '',
-  }
+  // state = {
+  //   _id: '',
+  //   telefone: '',
+  //   nome: '',
+  //   valor: '',
+  //   descricao: '',
+  //   sucesso: '',
+  // }
 
-  async componentDidMount() {
-    debugger;
-    const { idVenda } = this.props.match.params;
-    const resp = await api.get(`/venda/${idVenda}`);
-    const doc = resp.data.docs[0];
-    this.setState({ '_id': doc._id, 'telefone': doc.telefone, 'nome': doc.nome, 'valor': doc.valor, 'descricao': doc.descricao, 'sucesso': '' });
-  }
+  // async componentDidMount() {
+  //   const { idVenda } = this.props.match.params;
+  //   const resp = await api.get(`/venda/${idVenda}`);
+  //   const doc = resp.data.docs[0];
+  //   if (doc) {
+  //     this.setState({ '_id': doc._id, 'telefone': doc.telefone, 'nome': doc.nome, 'valor': doc.valor, 'descricao': doc.descricao, 'sucesso': '' });
+  //   }
+  // }
 
-  change = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
+  // change = e => {
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   });
+  // }
 
-  onSubmit = () => {
-    console.log("Salvando os registros " + this.state.descricao);
-    debugger;
-    if (!this.state._id) {
-      var sucesso;
-      api.post('/venda', { 'telefone': this.state.telefone, 'nome': this.state.nome, 'valor': this.state.valor, 'descricao': this.state.descricao })
-        .then((response) => {
-          if (response.error) {
-            console.error(response.error);
-            this.setState({
-              sucesso: false,
-            });
-          } else {
-            this.setState({
-              telefone: '',
-              nome: '',
-              valor: '',
-              descricao: '',
-              sucesso: true,
-            });
-          }
-        });
-    } else {
-      var sucesso;
-      api.put('/venda/'+this.state._id, { 'telefone': this.state.telefone, 'nome': this.state.nome, 'valor': this.state.valor, 'descricao': this.state.descricao })
-        .then((response) => {
-          if (response.error) {
-            console.error(response.error);
-            this.setState({
-              sucesso: false,
-            });
-          } else {
-            this.setState({
-              sucesso: true,
-            });
-          }
-        });
-    }
-  }
+  // onSubmit = () => {
+  //   console.log("Salvando os registros " + this.state.descricao);
+  //   debugger;
+  //   if (!this.state._id) {
+  //     var sucesso;
+  //     api.post('/venda', { 'telefone': this.state.telefone, 'nome': this.state.nome, 'valor': this.state.valor, 'descricao': this.state.descricao })
+  //       .then((response) => {
+  //         if (response.error) {
+  //           console.error(response.error);
+  //           this.setState({
+  //             sucesso: false,
+  //           });
+  //         } else {
+  //           this.setState({
+  //             telefone: '',
+  //             nome: '',
+  //             valor: '',
+  //             descricao: '',
+  //             sucesso: true,
+  //           });
+  //         }
+  //       });
+  //   } else {
+  //     var sucesso;
+  //     api.put('/venda/'+this.state._id, { 'telefone': this.state.telefone, 'nome': this.state.nome, 'valor': this.state.valor, 'descricao': this.state.descricao })
+  //       .then((response) => {
+  //         if (response.error) {
+  //           console.error(response.error);
+  //           this.setState({
+  //             sucesso: false,
+  //           });
+  //         } else {
+  //           this.setState({
+  //             sucesso: true,
+  //           });
+  //         }
+  //       });
+  //   }
+  // }
 
   render() {
     return (

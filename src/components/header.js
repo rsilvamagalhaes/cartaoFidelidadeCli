@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import React from 'react'
 
-class Header extends Component {
-    state = {
-        nomeCliente : '',
-    }
-    async componentDidMount() {
-    }
-
-    render() {
-        this.state.nomeCliente = "Maria";
-        return (
-            <div className="mx-auto" style={{ justifyContent: 'center', paddingTop: '20px', paddingBottom: '20px', display: 'flex' }}>
-                <h2>Listagem de compras {this.state.nomeCliente}.</h2>
-            </div>);
-    }
-}
-
-export default Header;
+export default props => (
+    <header className="main-header">
+        <a href="#" className="logo">
+            <span className="logo-lg">
+                <i className="fa fa-star"></i>
+                <b> Tupper</b> <i className="fa fa-star"></i> Estrelas
+            </span>
+         </a>
+         <nav className="navbar navbar-static-top">
+         </nav>
+    </header>
+)

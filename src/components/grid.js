@@ -4,74 +4,74 @@ import MessageErro from './messageErro';
 import MessageSucesso from './messageSucesso';
 
 export default class Grid extends Component {
-    state = {
-        vendas: [],
-        vendasInfo: {},
-        page: 1,
-        telefone: '',
-        sucesso: '',
-    }
+    // state = {
+    //     vendas: [],
+    //     vendasInfo: {},
+    //     page: 1,
+    //     telefone: '',
+    //     sucesso: '',
+    // }
 
-    componentDidMount() {
-        //TODO: user digitara
-        this.setState({ 'telefone': '19991289965' });
-        this.carregarVendas();
-    }
+    // componentDidMount() {
+    //     //TODO: user digitara
+    //     this.setState({ 'telefone': '19991289965' });
+    //     this.carregarVendas();
+    // }
 
-    carregarVendas = async (page) => {
-        if (!page) page = 1;
+    // carregarVendas = async (page) => {
+    //     if (!page) page = 1;
 
-        const response = await api.get('/venda/' + this.state.telefone + '?page=' + page);
+    //     const response = await api.get('/venda/' + this.state.telefone + '?page=' + page);
 
-        const { docs, ...vendasInfo } = response.data;
+    //     const { docs, ...vendasInfo } = response.data;
 
-        this.setState({ vendas: docs, vendasInfo, page });
-    }
+    //     this.setState({ vendas: docs, vendasInfo, page });
+    // }
 
-    anterior = () => {
-        const { page, vendasInfo } = this.state;
+    // anterior = () => {
+    //     const { page, vendasInfo } = this.state;
 
-        if (page === 1) return;
-        const pageNumber = page - 1;
+    //     if (page === 1) return;
+    //     const pageNumber = page - 1;
 
-        this.carregarVendas(pageNumber);
-    }
+    //     this.carregarVendas(pageNumber);
+    // }
 
-    proximo = () => {
-        const { page, vendasInfo } = this.state;
+    // proximo = () => {
+    //     const { page, vendasInfo } = this.state;
 
-        if (page === vendasInfo.pages) return;
+    //     if (page === vendasInfo.pages) return;
 
-        const pageNumber = page + 1;
+    //     const pageNumber = page + 1;
 
-        this.carregarVendas(pageNumber);
+    //     this.carregarVendas(pageNumber);
 
-        console.log(this.state.page === 1);
-    }
+    //     console.log(this.state.page === 1);
+    // }
     
     
-    remover = (idVenda) => {
-        console.log("Remver!! -->> " + idVenda);
-        api.delete('/venda/' + idVenda)
-      .then((response) => {
-        if (response.error) {
-            this.setState({sucesso: false});
-            console.log("Ocorreu erro " + response.error);
-        } else {
-            this.setState({sucesso: true});
-            this.carregarVendas(this.state.page);
-        }
-      });
-    }
+    // remover = (idVenda) => {
+    //     console.log("Remver!! -->> " + idVenda);
+    //     api.delete('/venda/' + idVenda)
+    //   .then((response) => {
+    //     if (response.error) {
+    //         this.setState({sucesso: false});
+    //         console.log("Ocorreu erro " + response.error);
+    //     } else {
+    //         this.setState({sucesso: true});
+    //         this.carregarVendas(this.state.page);
+    //     }
+    //   });
+    // }
 
-    redirecionar = (idVenda) => {
-        console.log("Alterar --> " + idVenda);
-        window.location = "/venda/" + idVenda;
-    }
+    // redirecionar = (idVenda) => {
+    //     console.log("Alterar --> " + idVenda);
+    //     window.location = "/venda/" + idVenda;
+    // }
 
-    proximoNumero = (page) => {
-        this.carregarVendas(page);
-    }
+    // proximoNumero = (page) => {
+    //     this.carregarVendas(page);
+    // }
 
     render() {
         return (
