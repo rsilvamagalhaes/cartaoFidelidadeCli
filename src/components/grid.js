@@ -77,21 +77,49 @@ export default class Grid extends Component {
         return (
             <div>
 
-                {this.state.sucesso === true ? <MessageSucesso /> : null}
-                {this.state.sucesso === false ? <MessageErro /> : null}
+                {/* {this.state.sucesso === true ? <MessageSucesso /> : null}
+                {this.state.sucesso === false ? <MessageErro /> : null} */}
                 
                 <table className="table">
                     <thead className="thead-light">
                         <tr>
-                            <th className="col-md-2" scope="co3">Descrição</th>
+                            <th className="col-md-2" scope="co3">Vitrine</th>
                             <th className="col-md-1" scope="co2">Valor</th>
-                            <th className="col-md-1" scope="co4">Estrelas</th>
                             <th className="col-md-1" scope="co5"></th>
                             <th className="col-md-1" scope="co6"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.vendas.map(venda => (
+                        <tr key='1'>
+                            <td>07-2020</td>
+                            <td>250,00</td>
+                        </tr>
+                        <tr key='2'>
+                            <td>07-2020</td>
+                            <td>250,00</td>
+                        </tr>
+                        <tr key='3'>
+                            <td>07-2020</td>
+                            <td>250,00</td>
+                        </tr>
+                        <tr key='4'>
+                            <td>07-2020</td>
+                            <td>250,00</td>
+                        </tr>
+                        <tr key='5'>
+                            <td>07-2020</td>
+                            <td>250,00</td>
+                        </tr>
+                        <tr key='6'>
+                            <td>07-2020</td>
+                            <td>250,00</td>
+                        </tr>
+                        <tr key='7'>
+                            <td>07-2020</td>
+                            <td>250,00</td>
+                        </tr>
+                        
+                        {/* {this.state.vendas.map(venda => (
                             <tr key={venda._id}>
                                 <td>{venda.descricao}</td>
                                 <td>{venda.valor}</td>
@@ -109,7 +137,7 @@ export default class Grid extends Component {
                                     </div>
                                 </td>
                             </tr>
-                        ))}
+                        ))} */}
                     </tbody>
                 </table>
 
