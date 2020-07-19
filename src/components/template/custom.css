@@ -14,6 +14,14 @@
     margin-left: 20px;
 }
 
+.bg-pink {
+    background-color: #E52860 !important; 
+}
+
+.bg-pink-dark {
+    background-color: #bd214f !important; 
+}
+
 @media only screen and (max-width: 600px) {
     .block-button {
         display: block;

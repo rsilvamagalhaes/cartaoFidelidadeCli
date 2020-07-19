@@ -4,154 +4,82 @@ import MessageErro from './messageErro';
 import MessageSucesso from './messageSucesso';
 
 export default class Grid extends Component {
-    // state = {
-    //     vendas: [],
-    //     vendasInfo: {},
-    //     page: 1,
-    //     telefone: '',
-    //     sucesso: '',
-    // }
 
-    // componentDidMount() {
-    //     //TODO: user digitara
-    //     this.setState({ 'telefone': '19991289965' });
-    //     this.carregarVendas();
-    // }
+  render() {
+    return (
+      <div className="box box-info">
+        <div className="box-header with-border">
+          <h3 className="box-title">Últimas Compras</h3>
+        </div>
 
-    // carregarVendas = async (page) => {
-    //     if (!page) page = 1;
+        <div className="row">
+          <div className="col-sm-6">
+              <div className="dataTables_length" id="example1_length">
+                <label>
+                  <label>Search: 
+                    <select name="example1_length" aria-controls="example1" className="form-control input-sm">
+                      <option value="10">10</option>
+                      <option value="25">25</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
+                    </select>
+                  </label>
+                </label>
+              </div>
+          </div>
+          <div className="col-sm-6">
+              <div id="example1_filter" className="dataTables_filter">
+                <label>Search:
+                <input type="search" className="form-control input-sm" placeholder="" aria-controls="example1"/>
+                </label>
+              </div>
+          </div>
+        </div>
 
-    //     const response = await api.get('/venda/' + this.state.telefone + '?page=' + page);
+        <div className="box-body">
+          <div className="table-responsive">
+            <table className="table no-margin">
+              <thead>
+                <tr>
+                  <th>Vitrine</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2020-09</td>
+                  <td>250,21</td>
+                </tr>
+                <tr>
+                  <td>2020-10</td>
+                  <td>250,21</td>
+                </tr>
+                <tr>
+                  <td>2020-11</td>
+                  <td>250,21</td>
+                </tr>
+                <tr>
+                  <td>2020-12</td>
+                  <td>250,21</td>
+                </tr>
+                <tr>
+                  <td>2021-01</td>
+                  <td>250,21</td>
+                </tr>
+                <tr>
+                  <td>2021-02</td>
+                  <td>250,22</td>
+                </tr>
+                <tr>
+                  <td>2021-03</td>
+                  <td>222,21</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-    //     const { docs, ...vendasInfo } = response.data;
-
-    //     this.setState({ vendas: docs, vendasInfo, page });
-    // }
-
-    // anterior = () => {
-    //     const { page, vendasInfo } = this.state;
-
-    //     if (page === 1) return;
-    //     const pageNumber = page - 1;
-
-    //     this.carregarVendas(pageNumber);
-    // }
-
-    // proximo = () => {
-    //     const { page, vendasInfo } = this.state;
-
-    //     if (page === vendasInfo.pages) return;
-
-    //     const pageNumber = page + 1;
-
-    //     this.carregarVendas(pageNumber);
-
-    //     console.log(this.state.page === 1);
-    // }
-    
-    
-    // remover = (idVenda) => {
-    //     console.log("Remver!! -->> " + idVenda);
-    //     api.delete('/venda/' + idVenda)
-    //   .then((response) => {
-    //     if (response.error) {
-    //         this.setState({sucesso: false});
-    //         console.log("Ocorreu erro " + response.error);
-    //     } else {
-    //         this.setState({sucesso: true});
-    //         this.carregarVendas(this.state.page);
-    //     }
-    //   });
-    // }
-
-    // redirecionar = (idVenda) => {
-    //     console.log("Alterar --> " + idVenda);
-    //     window.location = "/venda/" + idVenda;
-    // }
-
-    // proximoNumero = (page) => {
-    //     this.carregarVendas(page);
-    // }
-
-    render() {
-        return (
-            <div>
-
-                {/* {this.state.sucesso === true ? <MessageSucesso /> : null}
-                {this.state.sucesso === false ? <MessageErro /> : null} */}
-                
-                <table className="table">
-                    <thead className="thead-light">
-                        <tr>
-                            <th className="col-md-2" scope="co3">Vitrine</th>
-                            <th className="col-md-1" scope="co2">Valor</th>
-                            <th className="col-md-1" scope="co5"></th>
-                            <th className="col-md-1" scope="co6"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr key='1'>
-                            <td>07-2020</td>
-                            <td>250,00</td>
-                        </tr>
-                        <tr key='2'>
-                            <td>07-2020</td>
-                            <td>250,00</td>
-                        </tr>
-                        <tr key='3'>
-                            <td>07-2020</td>
-                            <td>250,00</td>
-                        </tr>
-                        <tr key='4'>
-                            <td>07-2020</td>
-                            <td>250,00</td>
-                        </tr>
-                        <tr key='5'>
-                            <td>07-2020</td>
-                            <td>250,00</td>
-                        </tr>
-                        <tr key='6'>
-                            <td>07-2020</td>
-                            <td>250,00</td>
-                        </tr>
-                        <tr key='7'>
-                            <td>07-2020</td>
-                            <td>250,00</td>
-                        </tr>
-                        
-                        {/* {this.state.vendas.map(venda => (
-                            <tr key={venda._id}>
-                                <td>{venda.descricao}</td>
-                                <td>{venda.valor}</td>
-                                <td>
-                                    <h3><span className="badge badge-light">{Math.floor(venda.valor / 75)} <i className="w3-xlarge fa fa-star"></i></span></h3>
-                                </td>
-                                <td>
-                                    <div>
-                                        <i key={'alterar' + venda._id} className="w3-xlarge fa fa-edit" onClick={()=>this.redirecionar(venda._id)}/>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <i key={'remover' + venda._id} className="w3-xlarge fa fa-trash" style={{color:'red'}} onClick={()=>this.remover(venda._id)}></i>
-                                    </div>
-                                </td>
-                            </tr>
-                        ))} */}
-                    </tbody>
-                </table>
-
-                <nav>
-                    <ul className="pagination justify-content-center">
-                        <li className="page-item">
-                            <a className="page-link" onClick={this.anterior} tabIndex="-1" aria-disabled="{this.state.page === 1}">{'<'}</a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" onClick={this.proximo} aria-disabled="{this.state.page === this.state.vendasInfo.pages}">{'>'}</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        );
-    }
+        </div>
+      </div>
+    );
+  }
 }

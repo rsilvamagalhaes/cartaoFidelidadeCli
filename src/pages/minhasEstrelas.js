@@ -10,11 +10,7 @@ class MinhasEstrelas extends Component {
       <div>
         <ContentProfile/>
         <Content>
-          
-          <h2>Últimas Compras</h2>
-          <Grid/>
-          
-
+            <Grid/>
         </Content>
       </div>
     )
