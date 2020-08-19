@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ContentHeader from '../components/contentHeader'
 import Content from '../components/content'
-import { divide } from 'lodash'
+
+
 
 class ConsultarMinhasEstrelas extends Component {
   render() {
@@ -24,5 +25,8 @@ class ConsultarMinhasEstrelas extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({action : state.action})
+const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch)
 
 export default ConsultarMinhasEstrelas

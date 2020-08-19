@@ -1,36 +1,42 @@
 import React, { Component } from 'react';
-import api from './../services/api';
-import MessageErro from './messageErro';
-import MessageSucesso from './messageSucesso';
+import { bindActionCreators } from 'redux'
+import {connect} from 'react-redux'
+import {getListVenda} from '../vendas/apiAction'
 
-export default class Grid extends Component {
+class Grid extends Component {
 
+  componentWillMount() {
+    this.props.getListVenda()
+  }
+  
+  renderRows() {
+    const list = this.props.list || []
+    return list.map(venda => (
+      <tr key={venda._id}>
+        <td>{venda.vitrine}</td>
+        <td>{venda.valor}</td>
+      </tr>
+    ))
+  }
+  
   render() {
+    console.log(this.props.list)
     return (
       <div className="box box-info">
         <div className="box-header with-border">
           <h3 className="box-title">Últimas Compras</h3>
         </div>
 
-        <div className="row">
+        <div className="row box-body">
           <div className="col-sm-6">
-              <div className="dataTables_length" id="example1_length">
-                <label>
-                  <label>Search: 
-                    <select name="example1_length" aria-controls="example1" className="form-control input-sm">
-                      <option value="10">10</option>
-                      <option value="25">25</option>
-                      <option value="50">50</option>
-                      <option value="100">100</option>
-                    </select>
-                  </label>
-                </label>
-              </div>
-          </div>
-          <div className="col-sm-6">
-              <div id="example1_filter" className="dataTables_filter">
-                <label>Search:
-                <input type="search" className="form-control input-sm" placeholder="" aria-controls="example1"/>
+              <div id="filter" className="dataTables_filter">
+                <label> Vitrine
+                <div className="input-group input-group-sm">
+                <input type="text" className="form-control"/>
+                    <span className="input-group-btn ">
+                      <button type="button" className="btn btn-info btn-flat">Filtrar</button>
+                    </span>
+                </div>
                 </label>
               </div>
           </div>
@@ -46,34 +52,7 @@ export default class Grid extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>2020-09</td>
-                  <td>250,21</td>
-                </tr>
-                <tr>
-                  <td>2020-10</td>
-                  <td>250,21</td>
-                </tr>
-                <tr>
-                  <td>2020-11</td>
-                  <td>250,21</td>
-                </tr>
-                <tr>
-                  <td>2020-12</td>
-                  <td>250,21</td>
-                </tr>
-                <tr>
-                  <td>2021-01</td>
-                  <td>250,21</td>
-                </tr>
-                <tr>
-                  <td>2021-02</td>
-                  <td>250,22</td>
-                </tr>
-                <tr>
-                  <td>2021-03</td>
-                  <td>222,21</td>
-                </tr>
+                {this.renderRows()}
               </tbody>
             </table>
           </div>
@@ -83,3 +62,7 @@ export default class Grid extends Component {
     );
   }
 }
+console.info("GRID " + getListVenda);
+const mapStateToProps = state => ({list: state.venda })
+const mapDispatchToProps = dispatch => bindActionCreators({getListVenda}, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(Grid)
