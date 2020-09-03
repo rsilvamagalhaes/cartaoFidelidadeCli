@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
-import {connect} from 'react-redux'
+//import {connect} from 'react-redux'
 import {getListVenda} from '../vendas/apiAction'
 
 class Grid extends Component {
@@ -63,6 +63,6 @@ class Grid extends Component {
   }
 }
 console.info("GRID " + getListVenda);
-const mapStateToProps = state => ({list: state.venda })
-const mapDispatchToProps = dispatch => bindActionCreators({getListVenda}, dispatch)
-export default connect(mapStateToProps, mapDispatchToProps)(Grid)
+//const mapStateToProps = state => ({list: state.venda })
+//const mapDispatchToProps = dispatch => bindActionCreators({getListVenda}, dispatch)
+//export default connect(mapStateToProps, mapDispatchToProps)(Grid)

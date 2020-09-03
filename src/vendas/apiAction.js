@@ -2,16 +2,14 @@ import axios from 'axios'
 const BASE_URL = 'http://localhost:3001/api';
 
 
-export function getListVenda() {
+export function getListVenda(telefone) {
     console.info("Chamando o serviço")
-    const request = axios.get(`${BASE_URL}/estrelas/19991289211`)
-    //const request = axios.get(`${BASE_URL}/teste`)
+    const request = axios.get(`${BASE_URL}/estrelas/` + telefone)
     .then(resp => {
         toastr.success('Sucesso', 'Operação Realizada com sucesso.')
-        dispatch(init())
     })
     .catch(e => {
-        e.response.data.errors.forEach(error => toastr.error('Erro', error))
+        console.error(e.response)
     })
 
     console.info("request  " + request)
