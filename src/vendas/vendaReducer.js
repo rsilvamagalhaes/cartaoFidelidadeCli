@@ -1,10 +1,17 @@
-const INITIAL_STATE = {list: []}
+import {createStore} from 'redux'
 
-export default (state = INITIAL_STATE, action) => {
+const INITIAL_STATE = {data: []}
+
+function vendasPorTelefone (state = INITIAL_STATE, action) {
     switch (action.type) {
         case 'VENDAS_POR_TELEFONE':
-            return { ...state, list: action.payload.data }
+            console.log(action.data);
+            return { ...state, data: [...state.data, action.data] }
         default:
             return state
     }
 }
+
+const store = createStore(vendasPorTelefone);
+
+export default store;

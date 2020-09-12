@@ -5,13 +5,25 @@ import ContentHeader from '../components/contentHeader'
 import Content from '../components/content'
 import { getListVenda } from '../vendas/apiAction'
 import {submitConsultarMinhasEstrelasAction} from '../vendas/consultarMinhasEstrelasAction'
+import { useDispatch } from 'react-redux';
 
-const ConsultarMinhasEstrelasForm = props => {
+import createHistory from 'history/createBrowserHistory'
+import { createHashHistory } from 'history'
+const history = createHashHistory()
+
+export default function ConsultarMinhasEstrelasForm() {
+
+  const dispatch = useDispatch();
+
   const { register, handleSubmit } = useForm();
+ 
   const onSubmit = data => {
-    getListVenda(data.telefone)
-    console.log(data)
+    getListVenda(dispatch, data.telefone);
   };
+
+  // const mapDispatchToProps = {
+  //   searchDocFun,
+  // };
 
     return (
       <div>
@@ -31,9 +43,7 @@ const ConsultarMinhasEstrelasForm = props => {
       </div>
     )
 }
-
-export default ConsultarMinhasEstrelasForm;
-
+//export default connect(state => mapStateToProps, mapDispatchToProps)(ConsultarMinhasEstrelasForm)
 
 
 // const selector = formValueSelector("ConsultarMinhasEstrelasForm"); // select current form

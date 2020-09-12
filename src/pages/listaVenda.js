@@ -13,3 +13,4 @@ const ListaVenda = () => (
 );
 
 export default ListaVenda;
+
