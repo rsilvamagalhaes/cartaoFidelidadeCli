@@ -15,11 +15,15 @@ const BASE_URL = 'http://localhost:3001/api';
 //     })
 // }
 
-export function getListVenda(dispatch, telefone) {
+export function getListVenda(dispatch, telefone, history) {
     return fetch(`${BASE_URL}/estrelas/` + telefone)
       .then(res => res.json())
       .then(
         data => dispatch({ type: 'VENDAS_POR_TELEFONE', data }),
-        err => dispatch({ type: 'VENDAS_POR_TELEFONE', err }) 
+        err => dispatch({ type: 'VENDAS_POR_TELEFONE', err }),
+      ).then(
+        function() {
+          window.location.href = 'http://localhost:3000/#/estrelas/' + telefone;
+        }
       );
   }

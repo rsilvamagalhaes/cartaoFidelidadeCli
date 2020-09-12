@@ -5,8 +5,9 @@ import {getListVenda} from '../vendas/apiAction'
 import {useSelector} from 'react-redux';
 
 export default function Grid() {
-  const detalhes = useSelector(state => state.detalhes);
-
+  const detalhes = useSelector(state => state.data[0]);
+  debugger
+  console.warn("aquiiiii " + detalhes);
   // renderRows() {
   //   const list = this.props.list || []
   //   return list.map(venda => (
@@ -48,12 +49,13 @@ export default function Grid() {
               </tr>
             </thead>
             <tbody>
-            detalhes.venda.map(venda => (
-              <tr key={venda._id}>
-                <td>{venda.vitrine}</td>
-                <td>{venda.valor}</td>
+            {
+            detalhes.venda.map(ven => (
+              <tr key={ven._id}>
+                <td>{ven.vitrine}</td>
+                <td>{ven.valor}</td>
               </tr>
-            ))
+            ))}
             </tbody>
           </table>
         </div>
