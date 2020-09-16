@@ -20,7 +20,6 @@ export default function ConsultarMinhasEstrelasForm() {
  
   const onSubmit = data => {
     getListVenda(dispatch, data.telefone);
-    debugger
   };
 
   return (
@@ -41,44 +40,3 @@ export default function ConsultarMinhasEstrelasForm() {
     </div>
   )
 }
-//export default connect(state => mapStateToProps, mapDispatchToProps)(ConsultarMinhasEstrelasForm)
-
-
-// const selector = formValueSelector("ConsultarMinhasEstrelasForm"); // select current form
-// // Decorate form with selected redux form state values
-// const mapStateToProps = state => {
-//   const telefone = selector(state, "telefone");
-//   return {
-//     telefone
-//   };
-// };
-
-// // Decorate form with dispatchable actions
-// const mapDispatchToProps = {
-//   change
-// };
-
-// // create a redux form, then include the above decorators for the created form to utilize
-// export default reduxForm({
-//   form: "ConsultarMinhasEstrelasForm"
-// })(
-//   connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-//   )(ConsultarMinhasEstrelasForm)
-// );
-
-
-
-
-// reduxForm({form: 'consultarMinhasEstrelasForm'})(ConsultarMinhasEstrelasForm)
-// const selector = formValueSelector('consultarMinhasEstrelasForm')
-// const mapStateToProps = state => {
-//   telefone: selector(state, 'telefone')
-// }
-
-// const mapDispatchToProps = {
-//   change
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(ConsultarMinhasEstrelasForm)

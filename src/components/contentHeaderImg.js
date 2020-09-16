@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react';
+import {useSelector} from 'react-redux';
 
-export default props => (
+export default function contentHeaderImg() {
+  const detalhes = useSelector(state => state.data[0]);
+  const cliente = detalhes.cliente;
+  return (
      <div className='mb-2'>
       <div className='row'>
         <div className='col-md-2 bg-aqua-active'>
@@ -9,11 +13,12 @@ export default props => (
         </div>
         <div className='col-md-4 bg-aqua-active'>
           <div className='card-body'>
-          <h3 className="widget-user-username">(19)99128-9977</h3>
-          <h3 className="widget-user-username">Olá Maria da Silva</h3>
-          <h5 className="widget-user-desc">Você possui 38 <i className='w3-xlarge fa fa-star-o'></i></h5>
+          <h3 className="widget-user-username">{cliente.telefone}</h3>
+          <h3 className="widget-user-username">{cliente.nome}</h3>
+          <h5 className="widget-user-desc">Você possui {cliente.qtdEstrelas} <i className='w3-xlarge fa fa-star-o'></i></h5>
           </div>
         </div>
       </div>
     </div>
-)
+  );
+}

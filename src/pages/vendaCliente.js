@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import Grid from '../components/grid'
 import Content from '../components/content'
 
-
-class VendaCliente extends Component {
-  render() {
+export default function VendaCliente() {
     return (
       <div>
         <Content>
@@ -45,11 +43,9 @@ class VendaCliente extends Component {
             </form>
           </div>
 
-          <Grid/>
+        grid aqui
+
         </Content>
       </div>
     )
-  }
 }
-
-export default VendaCliente

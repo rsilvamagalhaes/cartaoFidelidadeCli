@@ -1,23 +1,8 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux'
-//import {connect} from 'react-redux'
-import {getListVenda} from '../vendas/apiAction'
 import {useSelector} from 'react-redux';
 
 export default function Grid() {
   const detalhes = useSelector(state => state.data[0]);
-  debugger
-  console.warn("aquiiiii " + detalhes);
-  // renderRows() {
-  //   const list = this.props.list || []
-  //   return list.map(venda => (
-  //     <tr key={venda._id}>
-  //       <td>{venda.vitrine}</td>
-  //       <td>{venda.valor}</td>
-  //     </tr>
-  //   ))
-  // }
-
   return (
     <div className="box box-info">
       <div className="box-header with-border">
@@ -64,7 +49,3 @@ export default function Grid() {
     </div>
   );
 }
-console.info("GRID " + getListVenda);
-//const mapStateToProps = state => ({list: state.venda })
-//const mapDispatchToProps = dispatch => bindActionCreators({getListVenda}, dispatch)
-//export default connect(mapStateToProps, mapDispatchToProps)(Grid)
