@@ -3,23 +3,16 @@ import { useForm } from 'react-hook-form/dist/index.ie11'
 
 import ContentHeader from '../components/contentHeader'
 import Content from '../components/content'
-import { getListVenda } from '../vendas/apiAction'
-import {submitConsultarMinhasEstrelasAction} from '../vendas/consultarMinhasEstrelasAction'
+import { getListVenda } from '../vendas/listarVendas'
 import { useDispatch } from 'react-redux';
 
-
-import { Redirect } from 'react-router-dom'
-
-
-import { useHistory } from "react-router-dom";
 export default function ConsultarMinhasEstrelasForm() {
 
   const dispatch = useDispatch();
-
   const { register, handleSubmit } = useForm();
  
   const onSubmit = data => {
-    getListVenda(dispatch, data.telefone);
+    getListVenda(dispatch, data.telefone, true);
   };
 
   return (
